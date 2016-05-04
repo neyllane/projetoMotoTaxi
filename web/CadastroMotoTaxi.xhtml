@@ -1,0 +1,75 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form id="formulario">
+            <p:messages/>
+            <p:fieldset legend="Cadastro de Moto Taxi">
+                <p:panelGrid columns="3">
+                    <p:panel><h:outputText value="Cadastro"/><h:outputText value="*" style="color:red"/></p:panel>
+                    
+                    <h:outputText value="Nome*"/>
+                    <p:inputText id="inNome" value="#{bMotoTaxi.nome}" required="true"
+                                 requiredMessage="O Nome é Obrigatório"/>
+                    <p:message for="inNome"/>
+                    
+                    <h:outputText value="CPF*"/>
+                    <p:inputText id="inCPF" value="#{bMotoTaxi.cpf}" required="true"
+                                 requiredMessage="O CPF é obrigatorio"/>
+                    <p:message for="inCPF"/>
+                    
+                    <h:outputText value="RG*"/>
+                    <p:inputText id="inRG" value="#{bMotoTaxi.rg}" required="true"
+                                 requiredMessage="O RG é obrigatorio"/>
+                    <p:message for="inRG"/>
+                    
+                    <h:outputText value="Numero registro"/>
+                    <p:inputText value="#{bMotoTaxi.numregistro}"/>
+                    <h:outputText/>
+                    
+                    <h:outputText value="Endereço*"/>
+                    <p:inputText id="inEndereço" value="#{bMotoTaxi.endereco}" required="true"
+                                 requiredMessage="O endereço é obrigatorio"/>
+                    <p:message for="inEndereço"/>
+                    
+                      <h:outputText value="E-mail*"/>
+                    <p:inputText id="inEmail" value="#{bMotoTaxi.email}" required="true"
+                                 requiredMessage="O E-mail é obrigatorio"/>
+                    <p:message for="inEmail"/>
+                    
+                      <h:outputText value="Praça / Ponto*"/>
+                    <p:inputText id="inPracaPonto" value="#{bMotoTaxi.praca/ponto}" required="true"
+                                 requiredMessage="A praça é obrigatorio"/>
+                    <p:message for="inPracaPonto"/>
+                    
+                    <h:outputText value="Celular"/>
+                    <p:inputText value="#{bMotoTaxi.celular}"/>
+                    <h:outputText/>
+                </p:panelGrid>
+                <p:commandButton value="cadastrar" 
+                                 oncomplete="PF('widDial').show()"/>
+            </p:fieldset>
+            
+            <p:confirmDialog id="idDial" visible="false" message="Deseja realmente cadastrar o moto taxi ?"
+                             widgetVar="widDial">
+                <f:facet name="header">
+                    Atenção!!!
+                </f:facet>
+                <p:commandButton value="sim" action="#{controladorFornecedor.inserir(bFornecedor.buildFornecedor())}"
+                                 oncomplete="PF('widDial').hide()" update="formulario"
+                                 />
+                    <p:commandButton value="não" oncomplete="PF('widDial').hide()"/>
+            </p:confirmDialog>
+            
+        </h:form>
+    </h:body>
+</html>
+
+
