@@ -3,29 +3,33 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.ifpe.motoTaxi.model;
+package br.edu.ifpe.motoTaxi.negocio.model;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author kelly silva
  */
-@Entity(name = "Moto")
-
-public class Moto {
+@Table(name = "Moto")
+@Entity
+public class Moto implements Serializable {
 
     @Id
-    @GeneratedValue
     @Column(length = 50)
     private String Placa;
     @Column(length = 50)
     private String Marca;
     @Column(length = 50)
     private String Modelo;
+
+    
+    public Moto() {
+    }
 
     public Moto(String Placa, String Marca, String Modelo) {
         this.Marca = Marca;

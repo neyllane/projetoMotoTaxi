@@ -3,29 +3,31 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.ifpe.motoTaxi.model;
+package br.edu.ifpe.motoTaxi.negocio.model;
 
 import br.edu.ifpe.projetoMotoTaxi.model.Moto;
-import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author kelly silva
  */
-@Entity(name = "CadastroMotoTaxi")
-public class CadastroMotoTaxi implements Serializable {
+@Table(name = "CadastroMotoTaxi")
+@Entity
+public class CadastroMotoTaxi {
 
     @Id
     @GeneratedValue
-    private int id;
-    private String nome;
+    private int codigo;
     @Column(name = "cpf", length = 15, unique = true, nullable = false)
     private String cpf;
     @Column(length = 15)
+    private String nome;
+    @Column(length = 50)
     private int numResgistro;
     @Column(length = 10)
     private String rg;
@@ -33,16 +35,16 @@ public class CadastroMotoTaxi implements Serializable {
     private String endereco;
     @Column(length = 16)
     private int NumCelular;
-    @Column(length = 50)
+    @Column(length = 8)
     private String email;
     @Column(length = 50)
     private String ponto_praca;
     @Column(length = 50)
     private Moto MotoDoMotoTaxi;
 
-    public CadastroMotoTaxi(String nome, String cpf, String rg, int rumRegistro,
+    public CadastroMotoTaxi(String nome, String cpf, String rg, int numResgistro,
             String endereco, int NumCelular, String email,
-            String ponto_praca, Moto MotoDoMotoTaxi) {
+            String ponto_praca, Moto MotoDoMotoTaxi, int codigo) {
         this.nome = nome;
         this.rg = rg;
         this.endereco = endereco;
@@ -52,8 +54,10 @@ public class CadastroMotoTaxi implements Serializable {
         this.MotoDoMotoTaxi = MotoDoMotoTaxi;
         this.numResgistro = numResgistro;
         this.cpf = cpf;
+        this.codigo = codigo;
     }
 
+    @Deprecated
     public CadastroMotoTaxi() {
     }
 
@@ -128,10 +132,21 @@ public class CadastroMotoTaxi implements Serializable {
         return numResgistro;
     }
 
-    /**
-     * @param NumResgistro the NumResgistro to set
-     */
     public void setNumResgistro(int NumResgistro) {
         this.numResgistro = NumResgistro;
+    }
+
+    /**
+     * @return the codigo
+     */
+    public int getCodigo() {
+        return codigo;
+    }
+
+    /**
+     * @param codigo the codigo to set
+     */
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 }

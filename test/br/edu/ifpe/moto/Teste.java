@@ -7,39 +7,35 @@ package br.edu.ifpe.moto;
 
 import br.edu.ifpe.projetoMotoTaxi.model.CadastroMotoTaxi;
 import br.edu.ifpe.projetoMotoTaxi.util.HibernateUtil;
+import java.util.List;
 import javax.swing.JOptionPane;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
 
 /**
  *
  * @author kelly silva
  */
 public class Teste {
-    public static void main(String[]args){
-    Session session = HibernateUtil.getSessionFactory().openSession();
-    Transaction t = session.beginTransaction();
-    CadastroMotoTaxi cadastro = new CadastroMotoTaxi();
 
-    cadastro.setNome(JOptionPane.showInputDialog("Digite seu Nome:"));
-    cadastro.setCpf(JOptionPane.showInputDialog("Digite seu CPF:"));
-    cadastro.setNumResgistro(Integer.parseInt(JOptionPane.showInputDialog("Digite seu Número de Registro:")));
-    cadastro.setEmail(JOptionPane.showInputDialog("Digite seu Email:"));
-    cadastro.setNumCelular(Integer.parseInt(JOptionPane.showInputDialog("Digite seu Número do Celular:")));
-    cadastro.setPonto_praca(JOptionPane.showInputDialog("Digite seu Ponto/Praça:"));
-    
-    
-    
-    session.save(cadastro);
-    
-    t.commit();
-    
-    
-    
-    
-    
+    public static void main(String[] args) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction t = session.beginTransaction();
+
+        List<CadastroMotoTaxi> lista = (List<CadastroMotoTaxi>) session.createQuery("From CadastroMotoTaxi").list();
+        for (CadastroMotoTaxi cadastroMotoTaxi : lista) {
+            JOptionPane.showMessageDialog(null, cadastroMotoTaxi.getNome());
+            JOptionPane.showMessageDialog(null, cadastroMotoTaxi.getCpf());
+            JOptionPane.showMessageDialog(null, cadastroMotoTaxi.getEmail());
+            JOptionPane.showMessageDialog(null, cadastroMotoTaxi.getEndereco());
+            JOptionPane.showMessageDialog(null, cadastroMotoTaxi.getNumCelular());
+            JOptionPane.showMessageDialog(null, cadastroMotoTaxi.getNumResgistro());
+            JOptionPane.showMessageDialog(null, cadastroMotoTaxi.getRg());
+            JOptionPane.showMessageDialog(null, cadastroMotoTaxi.getPonto_praca());
+
+        }
+        t.commit();
+
     }
 
-    
 }
