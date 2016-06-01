@@ -33,18 +33,7 @@
                     <p:inputText id="inEmail" value="#{ControladorUsuario.selectedUsuario.email}" required="true"
                                  requiredMessage="O email é obrigatoria"/>
                     <p:message for="inEmail"/>
-
-                    <h:outputText value="Senha*"/>
-                    <p:inputText id="inSenha" value="#{ControladorUsuario.selectedUsuario.senha}" required="true"
-                                 requiredMessage="A senha é obrigatoria"/>
-                    <p:message for="inSenha"/>
-
-                    <h:outputText value="Login*"/>
-                    <p:inputText id="inLogin" value="#{ControladorUsuario.selectedUsuario.login}" required="true"
-                                 requiredMessage="O login é obrigatorio"/>
-                    <p:message for="inLogin"/>
-
-
+                    
                 </p:panelGrid>
                 <p:commandButton value="cadastrar" 
                                  oncomplete="PF('widDial').show()"/>
