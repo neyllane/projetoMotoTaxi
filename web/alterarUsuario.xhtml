@@ -15,21 +15,21 @@
             <p:fieldset legend="Alterar usuario">
                 <p:panelGrid columns="3">
                     <h:outputText value="Código"/>
-                    <h:outputText value="#{controladorUsuario.selectedUsuario.codigo}"/>
+                    <h:outputText value="#{ControladorUsuario.selectedUsuario.codigo}"/>
                     <h:outputText/>
 
                     <p:panel><h:outputText value="CPF"/><h:outputText value="*" style="color:red"/></p:panel>
-                    <p:inputText id="inCPF" value="#{controladorUsuario.selectedUsuario.cpf}"
+                    <p:inputText id="inCPF" value="#{ ControladorUsuario.selectedUsuario.cpf}"
                                  required="true" requiredMessage="O CPF é obrigatorio!"/>
                     <p:message for="inCPF" />
 
                     <h:outputText value="Nome*"/>
-                    <p:inputText id="inNome" value="#{controladorUsuario.selectedUsuario.nome}" required="true"
+                    <p:inputText id="inNome" value="#{ControladorUsuario.selectedUsuario.nome}" required="true"
                                  requiredMessage="O Nome é Obrigatório"/>
                     <p:message for="inNome"/>
 
                     <h:outputText value="email*"/>
-                    <p:inputText id="inEmail" value="#{controladorUsuario.selectedUsuario.email}" required="true"
+                    <p:inputText id="inEmail" value="#{ControladorUsuario.selectedUsuario.email}" required="true"
                                  requiredMessage=" O email é obrigatorio"/>
                     <p:message for="inEmail"/>
 
@@ -45,7 +45,7 @@
                 <f:facet name="header">
                     Atenção!!!
                 </f:facet>
-                <p:commandButton value="sim" action="#{controladorUsuario.alterar(controladorUsuario.selectedUsuario)}"
+                <p:commandButton value="sim" action="#{ControladorUsuario.alterar(ControladorUsuario.selectedUsuario)}"
                                  oncomplete="PF('widDial').hide()" update="formulario"
                                  />
                 <p:commandButton value="não" oncomplete="PF('widDial').hide()"/>
