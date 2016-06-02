@@ -6,10 +6,13 @@
 package br.edu.ifpe.motoTaxi.negocio.model;
 
 import br.edu.ifpe.projetoMotoTaxi.model.Moto;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -39,7 +42,7 @@ public class CadastroMotoTaxi {
     private String email;
     @Column(length = 50)
     private String ponto_praca;
-    @Column(length = 50)
+    @ManyToOne
     private Moto MotoDoMotoTaxi;
 
     public CadastroMotoTaxi(String nome, String cpf, String rg, int numResgistro,
