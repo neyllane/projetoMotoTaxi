@@ -7,8 +7,7 @@ package br.edu.ifpe.repositorio.implementacoes;
 
 import br.edu.ifpe.edu.cadastro.dao.DaoManagerHiber;
 import br.edu.ifpe.controladores.ControladorMotoTaxi;
-import br.edu.ifpe.projetoMotoTaxi.model.CadastroMotoTaxi;
-import br.edu.ifpe.projetoMotoTaxi.util.HibernateUtil;
+import br.edu.ifpe.motoTaxi.negocio.model.CadastroMotoTaxi;
 import br.edu.ifpe.repositorio.interfaces.RepositorioGenerico;
 import java.util.List;
 import org.hibernate.Session;
@@ -18,6 +17,10 @@ import org.hibernate.Session;
  * @author kelly silva
  */
 public class RepositorioControladorCadastroMotoTaxiImplDB implements RepositorioGenerico<CadastroMotoTaxi, Integer>{
+
+    public RepositorioControladorCadastroMotoTaxiImplDB() {
+        }
+    
       @Override
     public void inserir(CadastroMotoTaxi t) {
         DaoManagerHiber.getInstance().persist(t);

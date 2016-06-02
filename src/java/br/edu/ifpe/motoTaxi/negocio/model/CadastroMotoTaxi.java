@@ -5,7 +5,7 @@
  */
 package br.edu.ifpe.motoTaxi.negocio.model;
 
-import br.edu.ifpe.projetoMotoTaxi.model.Moto;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;

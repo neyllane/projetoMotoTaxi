@@ -8,10 +8,8 @@ package br.edu.ifpe.repositorio.implementacoes;
 import br.edu.ifpe.edu.cadastro.dao.DaoManagerHiber;
 import br.edu.ifpe.controladores.ControladorMotoTaxi;
 import br.edu.ifpe.motoTaxi.negocio.model.Usuario;
-import br.edu.ifpe.projetoMotoTaxi.util.HibernateUtil;
 import br.edu.ifpe.repositorio.interfaces.RepositorioGenerico;
 import java.util.List;
-import org.hibernate.Session;
 
 /**
  *

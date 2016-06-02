@@ -7,7 +7,7 @@ package br.edu.ifpe.repositorio.implementacoes;
 
 
 import br.edu.ifpe.controladores.ControladorMotoTaxi;
-import br.edu.ifpe.projetoMotoTaxi.model.CadastroMotoTaxi;
+import br.edu.ifpe.motoTaxi.negocio.model.CadastroMotoTaxi;
 import br.edu.ifpe.repositorio.interfaces.RepositorioGenerico;
 import java.util.ArrayList;
 import java.util.List;
