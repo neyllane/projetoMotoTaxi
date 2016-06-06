@@ -5,8 +5,8 @@
  */
 package br.edu.ifpe.moto;
 
-import br.edu.ifpe.projetoMotoTaxi.model.CadastroMotoTaxi;
-import br.edu.ifpe.projetoMotoTaxi.util.HibernateUtil;
+import br.edu.ifpe.motoTaxi.negocio.model.CadastroMotoTaxi;
+import br.edu.ifpe.motoTaxi.util.HibernateUtil;
 import java.util.List;
 import javax.swing.JOptionPane;
 import org.hibernate.Session;
