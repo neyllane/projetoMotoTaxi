@@ -100,7 +100,7 @@
             <p:confirmDialog id="dial2" visible="false" message="Deseja realmente Excluir o moto taxi? "
                              widgetVar="widDial2">
                 <p:commandButton value="sim" action="#{ControladorMotoTaxi.deletar(
-                                                       controladorMotoTaxi.selectedCadastroMotoTaxi)}"
+                                                       ControladorMotoTaxi.selectedCadastroMotoTaxi)}"
                                  oncomplete="PF('widDial2').hide()" update="formulario"/>
                 <p:commandButton value="não" oncomplete="PF('widDial2').hide()"/>
             </p:confirmDialog>
