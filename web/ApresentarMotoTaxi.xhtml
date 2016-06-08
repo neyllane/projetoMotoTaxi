@@ -9,54 +9,28 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
+
         <ui:include src="Menu2.xhtml"/>
         <p:growl id="gro" sticky="false" life="3000"/>
 
         <h:form id="formulario">
             <p:dataTable id="tabela" value="#{ControladorMotoTaxi.recuperarTodosMotoTaxi()}" var="item"
-                         paginator="true" rows="5" rowKey="#{item.cpf}" selectionMode="single"
+                         paginator="true" rows="5" rowKey="#{item.codigo}" selectionMode="single"
                          selection="#{ControladorMotoTaxi.selectedCadastroMotoTaxi}">
                 <f:facet name="header">
-                    MotoTaxi Cadastrados
+                MotoTaxi Cadastrados
                 </f:facet>
                 <p:column >
                     <f:facet name="header">
                         Código
                     </f:facet>
-                    <h:outputText value="#{item.cpf}"/>
+                    <h:outputText value="#{item.codigo}"/>
                 </p:column>
-                <p:column headerText="CPF" filterBy="#{item.cpf}">
-                    <h:outputText value="#{item.cpf}"/>
-                </p:column>
-                <p:column headerText="Nome">
+                <p:column headerText="Nome" filterBy="#{item.nome}">
                     <h:outputText value="#{item.nome}"/>
                 </p:column>
                 <p:column headerText="email">
                     <h:outputText value="#{item.email}"/>
-                </p:column>
-
-                <p:column headerText="NumRegistro">
-                    <h:outputText value="#{item.numResgistro}"/>
-                </p:column>
-
-                <p:column headerText="rg">
-                    <h:outputText value="#{item.rg}"/>
-                </p:column>
-
-                <p:column headerText="endereço">
-                    <h:outputText value="#{item.endereco}"/>
-                </p:column>
-
-                <p:column headerText="email">
-                    <h:outputText value="#{item.email}"/>
-                </p:column>
-
-                <p:column headerText="NumCelular">
-                    <h:outputText value="#{item.numCelular}"/>
-                </p:column>
-
-                <p:column headerText="Ponto/Praça">
-                    <h:outputText value="#{item.ponto_praca}"/>
                 </p:column>
 
             </p:dataTable>
@@ -68,36 +42,22 @@
             <p:dialog id="dial" visible="false" resizable="false" modal="true"
                       widgetVar="widDial">
                 <p:panelGrid columns="2">
-                 
+                    <h:outputText value="código"/>
+                    <h:outputText value="#{ControladorMotoTaxi.selectedCadastroMotoTaxi.codigo}"/>
+
                     <h:outputText value="CPF"/>
                     <h:outputText value="#{ControladorMotoTaxi.selectedCadastroMotoTaxi.cpf}"/>
 
                     <h:outputText value="Nome"/>
                     <h:outputText value="#{ControladorMotoTaxi.selectedCadastroMotoTaxi.nome}"/>
 
-                    <h:outputText value="NumRegistro"/>
-                    <h:outputText value="#{ControladorMotoTaxi.selectedCadastroMotoTaxi.numResgistro}"/>
-
-                    <h:outputText value="RG"/>
-                    <h:outputText value="#{ControladorMotoTaxi.selectedCadastroMotoTaxi.rg}"/>
-
-                    <h:outputText value="Endereço"/>
-                    <h:outputText value="#{ControladorMotoTaxi.selectedCadastroMotoTaxi.endereco}"/>
-
-                    <h:outputText value="NumCelular"/>
-                    <h:outputText value="#{ControladorMotoTaxi.selectedCadastroMotoTaxi.numCelular}"/>
-
-                    <h:outputText value="email"/>
+                    <h:outputText value="Email"/>
                     <h:outputText value="#{ControladorMotoTaxi.selectedCadastroMotoTaxi.email}"/>
-
-                    <h:outputText value="Ponto/Praça"/>
-                    <h:outputText value="#{ControladorMotoTaxi.selectedCadastroMotoTaxi.ponto_praca}"/>
-
                 </p:panelGrid>
                 <p:commandButton value="ok" oncomplete="PF('widDial').hide()"/>
             </p:dialog>
 
-            <p:confirmDialog id="dial2" visible="false" message="Deseja realmente Excluir o moto taxi? "
+            <p:confirmDialog id="dial2" visible="false" message="Deseja realmente Excluir o MotoTaxi ? "
                              widgetVar="widDial2">
                 <p:commandButton value="sim" action="#{ControladorMotoTaxi.deletar(
                                                        ControladorMotoTaxi.selectedCadastroMotoTaxi)}"

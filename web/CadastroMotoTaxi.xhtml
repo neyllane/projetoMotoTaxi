@@ -16,11 +16,12 @@
             <a href="CadastroMotoTaxi.xhtml"></a>
             <p:fieldset legend="Cadastro do MotoTaxi">
                 <p:panelGrid columns="3">
-                    <p:panel><h:outputText value="Código"/><h:outputText value="*" style="color:red"/></p:panel>
-
-                    <p:inputText id="inCPF" value="#{ControladorMotoTaxi.selectedCadastroMotoTaxi.cpf}" required="true" 
-                                 requiredMessage="O CPF é obrigatorio!"/>
-                    <p:message for="inCPF" />
+                    <p:panel><h:outputText value="Cadastro"/><h:outputText value="*" style="color:red"/></p:panel>
+                    
+                   <h:outputText value="CPF*"/>
+                   <p:inputText id="inCPF" value="#{ControladorMotoTaxi.selectedCadastroMotoTaxi.cpf}" required="true"
+                                 requiredMessage="O CPF é Obrigatório"/>
+                    <p:message for="inCPF"/>
 
 
                     <h:outputText value="Nome*"/>
@@ -32,32 +33,12 @@
                     <p:inputText id="inEmail" value="#{ControladorMotoTaxi.selectedCadastroMotoTaxi.email}" required="true"
                                  requiredMessage="O email é obrigatoria"/>
                     <p:message for="inEmail"/>
-
+                    
                     <h:outputText value="Endereço*"/>
                     <p:inputText id="inEndereco" value="#{ControladorMotoTaxi.selectedCadastroMotoTaxi.endereco}" required="true"
-                                 requiredMessage="O endereço é obrigatoria"/>
+                                 requiredMessage="O email é obrigatoria"/>
                     <p:message for="inEndereco"/>
-
-                    <h:outputText value="Número do celular*"/>
-                    <p:inputText id="inNumCelular" value="#{ControladorMotoTaxi.selectedCadastroMotoTaxi.numCelular}" required="true"
-                                 requiredMessage="O celular é obrigatorio"/>
-                    <p:message for="inNumCelular"/>
                     
-                    <h:outputText value="Número do Registro*"/>
-                    <p:inputText id="inNumRegistro" value="#{ControladorMotoTaxi.selectedCadastroMotoTaxi.numResgistro}" required="true"
-                                 requiredMessage="O Número de Registro é obrigatorio"/>
-                    <p:message for="inNumRegistro"/>
-                    
-                    <h:outputText value="Rg*"/>
-                    <p:inputText id="inRg" value="#{ControladorMotoTaxi.selectedCadastroMotoTaxi.rg}" required="true"
-                                 requiredMessage="O Rg é obrigatorio"/>
-                    <p:message for="inRg"/>
-                    
-                    <h:outputText value="Ponto_Praça*"/>
-                    <p:inputText id="inPonto_Praca" value="#{ControladorMotoTaxi.selectedCadastroMotoTaxi.ponto_praca}" required="true"
-                                 requiredMessage="O Ponto é  obrigatorio"/>
-                    <p:message for="inPonto_Praca"/>
-
                 </p:panelGrid>
                 <p:commandButton value="cadastrar" 
                                  oncomplete="PF('widDial').show()"/>
