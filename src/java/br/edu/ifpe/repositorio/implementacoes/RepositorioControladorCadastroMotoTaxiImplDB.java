@@ -7,7 +7,7 @@ package br.edu.ifpe.repositorio.implementacoes;
 
 import br.edu.ifpe.edu.cadastro.dao.DaoManagerHiber;
 import br.edu.ifpe.controladores.ControladorMotoTaxi;
-import br.edu.ifpe.motoTaxi.negocio.model.CadastroMotoTaxi;
+import br.edu.ifpe.motoTaxi.negocio.model.MotoTaxi;
 import br.edu.ifpe.repositorio.interfaces.RepositorioGenerico;
 import java.util.List;
 import org.hibernate.Session;
@@ -16,32 +16,32 @@ import org.hibernate.Session;
  *
  * @author kelly silva
  */
-public class RepositorioControladorCadastroMotoTaxiImplDB implements RepositorioGenerico<CadastroMotoTaxi, Integer>{
+public class RepositorioControladorCadastroMotoTaxiImplDB implements RepositorioGenerico<MotoTaxi, Integer>{
 
     public RepositorioControladorCadastroMotoTaxiImplDB() {
         }
     
       @Override
-    public void inserir(CadastroMotoTaxi t) {
+    public void inserir(MotoTaxi t) {
         DaoManagerHiber.getInstance().persist(t);
     }
 
     @Override
-    public void alterar(CadastroMotoTaxi t) throws Exception {
+    public void alterar(MotoTaxi t) throws Exception {
         DaoManagerHiber.getInstance().update(t);
     }
 
     @Override
-    public CadastroMotoTaxi recuperar(Integer chave) {
+    public MotoTaxi recuperar(Integer chave) {
         try {
-            return (CadastroMotoTaxi) DaoManagerHiber.getInstance().recover("from CadastroMotoTaxi where id = " + chave).get(0);
+            return (MotoTaxi) DaoManagerHiber.getInstance().recover("from CadastroMotoTaxi where id = " + chave).get(0);
         } catch (IndexOutOfBoundsException ex) {
             return null;
         }
     }
 
     @Override
-    public void deletar(CadastroMotoTaxi t) {
+    public void deletar(MotoTaxi t) {
         //Session ss = HibernateUtil.getSessionFactory().getCurrentSession();
         //ss.beginTransaction();
         //ss.delete(t);
@@ -50,7 +50,7 @@ public class RepositorioControladorCadastroMotoTaxiImplDB implements Repositorio
     }
 
     @Override
-    public List<CadastroMotoTaxi> recuperarTodos() {
+    public List<MotoTaxi> recuperarTodos() {
          //Session ss = HibernateUtil.getSessionFactory().getCurrentSession();
         //ss.beginTransaction();
         //List lista = ss.createQuery("From CadastroMotoTaxi").list();

@@ -7,7 +7,7 @@ package br.edu.ifpe.repositorio.implementacoes;
 
 
 import br.edu.ifpe.controladores.ControladorMotoTaxi;
-import br.edu.ifpe.motoTaxi.negocio.model.CadastroMotoTaxi;
+import br.edu.ifpe.motoTaxi.negocio.model.MotoTaxi;
 import br.edu.ifpe.repositorio.interfaces.RepositorioGenerico;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,18 +16,18 @@ import java.util.List;
  *
  * @author 1860915
  */
-public  class RepositorioselectedCadastroMotoTaxirImplMemo implements RepositorioGenerico<CadastroMotoTaxi, Integer> {
+public  class RepositorioselectedCadastroMotoTaxirImplMemo implements RepositorioGenerico<MotoTaxi, Integer> {
 
-    private List<CadastroMotoTaxi> listaControladorMotoTaxi = new ArrayList<>();
+    private List<MotoTaxi> listaControladorMotoTaxi = new ArrayList<>();
 
     @Override
-    public void inserir(CadastroMotoTaxi t) {
+    public void inserir(MotoTaxi t) {
         this.listaControladorMotoTaxi.add(t);
     }
 
     @Override
-    public void alterar(CadastroMotoTaxi t) throws Exception{
-        CadastroMotoTaxi m = null;
+    public void alterar(MotoTaxi t) throws Exception{
+        MotoTaxi m = null;
         for (int i = 0; i < this.listaControladorMotoTaxi.size(); i++) {
             m = this.listaControladorMotoTaxi.get(i);
             if (m.getCpf().equals(t.getCpf())) {
@@ -46,8 +46,8 @@ public  class RepositorioselectedCadastroMotoTaxirImplMemo implements Repositori
     }
 
     @Override
-    public CadastroMotoTaxi recuperar(Integer chave) {
-        CadastroMotoTaxi m = null;
+    public MotoTaxi recuperar(Integer chave) {
+        MotoTaxi m = null;
         for (int i = 0; i < this.listaControladorMotoTaxi.size(); i++) {
             m = this.listaControladorMotoTaxi.get(i);
             if (m.getNumResgistro()== chave) {
@@ -58,12 +58,12 @@ public  class RepositorioselectedCadastroMotoTaxirImplMemo implements Repositori
     }
 
     @Override
-    public void deletar(CadastroMotoTaxi t) {
+    public void deletar(MotoTaxi t) {
         this.listaControladorMotoTaxi.remove(t);
     }
 
     @Override
-    public List<CadastroMotoTaxi> recuperarTodos() {
+    public List<MotoTaxi> recuperarTodos() {
         return this.listaControladorMotoTaxi;
     }
 

@@ -59,7 +59,7 @@
                                  requiredMessage="O Ponto é obrigatorio"/>
                     <p:message for="inPonto_Praca"/>
                     
-                </p:panelGrid>
+                </p:panelGrid>0
                 <p:commandButton value="cadastrar" 
                                  oncomplete="PF('widDial').show()"/>
             </p:fieldset>
@@ -70,8 +70,7 @@
                     Atenção!!!
                 </f:facet>
                 <p:commandButton value="sim" action="#{ControladorMotoTaxi.inserir(ControladorMotoTaxi.selectedCadastroMotoTaxi)}"
-                                 oncomplete="PF('widDial').hide()" update="formulario"
-                                 />
+                                 oncomplete="PF('widDial').hide()" update="formulario"/>
                 <p:commandButton value="não" oncomplete="PF('widDial').hide()"/>
             </p:confirmDialog>
 

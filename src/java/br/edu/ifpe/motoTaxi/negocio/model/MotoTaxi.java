@@ -11,6 +11,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -21,7 +22,7 @@ import javax.persistence.Table;
  */
 @Table(name = "CadastroMotoTaxi")
 @Entity
-public class CadastroMotoTaxi {
+public class MotoTaxi {
 
     @Id
     @GeneratedValue
@@ -42,26 +43,27 @@ public class CadastroMotoTaxi {
     private String email;
     @Column(length = 50)
     private String ponto_praca;
-    @ManyToOne
-    private Moto MotoDoMotoTaxi;
+    //@ManyToOne
+    //@JoinColumn(name="mototx-id", nullable=true)
+    //private Moto MotoDoMotoTaxi;
 
-    public CadastroMotoTaxi(String nome, String cpf, String rg, int numResgistro,
+    public MotoTaxi(String nome, String cpf, String rg, int numResgistro,
             String endereco, int NumCelular, String email,
-            String ponto_praca, Moto MotoDoMotoTaxi, int codigo) {
+            String ponto_praca, int codigo) {
         this.nome = nome;
         this.rg = rg;
         this.endereco = endereco;
         this.NumCelular = NumCelular;
         this.email = email;
         this.ponto_praca = ponto_praca;
-        this.MotoDoMotoTaxi = MotoDoMotoTaxi;
+        //this.MotoDoMotoTaxi = MotoDoMotoTaxi;
         this.numResgistro = numResgistro;
         this.cpf = cpf;
         this.codigo = codigo;
     }
 
     @Deprecated
-    public CadastroMotoTaxi() {
+    public MotoTaxi() {
     }
 
     public String getNome() {
@@ -120,13 +122,13 @@ public class CadastroMotoTaxi {
         this.ponto_praca = ponto_praca;
     }
 
-    public Moto getMotoDoMotoTaxi() {
-        return MotoDoMotoTaxi;
-    }
+    //public Moto getMotoDoMotoTaxi() {
+        //return MotoDoMotoTaxi;
+    //}
 
-    public void setMotoDoMotoTaxi(Moto MotoDoMotoTaxi) {
-        this.MotoDoMotoTaxi = MotoDoMotoTaxi;
-    }
+    //public void setMotoDoMotoTaxi(Moto MotoDoMotoTaxi) {
+       // this.MotoDoMotoTaxi = MotoDoMotoTaxi;
+    //}
 
     /**
      * @return the NumResgistro

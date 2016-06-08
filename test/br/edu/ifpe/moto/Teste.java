@@ -5,7 +5,7 @@
  */
 package br.edu.ifpe.moto;
 
-import br.edu.ifpe.motoTaxi.negocio.model.CadastroMotoTaxi;
+import br.edu.ifpe.motoTaxi.negocio.model.MotoTaxi;
 import br.edu.ifpe.motoTaxi.util.HibernateUtil;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -22,8 +22,8 @@ public class Teste {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction t = session.beginTransaction();
 
-        List<CadastroMotoTaxi> lista = (List<CadastroMotoTaxi>) session.createQuery("From CadastroMotoTaxi").list();
-        for (CadastroMotoTaxi cadastroMotoTaxi : lista) {
+        List<MotoTaxi> lista = (List<MotoTaxi>) session.createQuery("From CadastroMotoTaxi").list();
+        for (MotoTaxi cadastroMotoTaxi : lista) {
             JOptionPane.showMessageDialog(null, cadastroMotoTaxi.getNome());
             JOptionPane.showMessageDialog(null, cadastroMotoTaxi.getCpf());
             JOptionPane.showMessageDialog(null, cadastroMotoTaxi.getEmail());
