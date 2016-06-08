@@ -18,7 +18,7 @@
                          paginator="true" rows="5" rowKey="#{item.codigo}" selectionMode="single"
                          selection="#{ControladorMotoTaxi.selectedCadastroMotoTaxi}">
                 <f:facet name="header">
-                MotoTaxi Cadastrados
+                    MotoTaxi Cadastrados
                 </f:facet>
                 <p:column >
                     <f:facet name="header">
@@ -29,8 +29,30 @@
                 <p:column headerText="Nome" filterBy="#{item.nome}">
                     <h:outputText value="#{item.nome}"/>
                 </p:column>
-                <p:column headerText="email">
+               
+                <p:column headerText="Email" >
                     <h:outputText value="#{item.email}"/>
+                </p:column>
+               
+
+                <p:column headerText="Endereço">
+                    <h:outputText value="#{item.endereco}"/>
+                </p:column>
+
+                <p:column headerText="Celular">
+                    <h:outputText value="#{item.numCelular}"/>
+                </p:column>
+
+                <p:column headerText="Número de Registro">
+                    <h:outputText value="#{item.numResgistro}"/>
+                </p:column>
+
+                <p:column headerText="RG">
+                    <h:outputText value="#{item.rg}"/>
+                </p:column>
+
+                <p:column headerText="Ponto_Praça">
+                    <h:outputText value="#{item.ponto_praca}"/>
                 </p:column>
 
             </p:dataTable>
@@ -53,6 +75,22 @@
 
                     <h:outputText value="Email"/>
                     <h:outputText value="#{ControladorMotoTaxi.selectedCadastroMotoTaxi.email}"/>
+
+                    <h:outputText value="Endereço"/>
+                    <h:outputText value="#{ControladorMotoTaxi.selectedCadastroMotoTaxi.endereco}"/>
+
+                    <h:outputText value="Celular"/>
+                    <h:outputText value="#{ControladorMotoTaxi.selectedCadastroMotoTaxi.numCelular}"/>
+
+                    <h:outputText value="Número do Registro"/>
+                    <h:outputText value="#{ControladorMotoTaxi.selectedCadastroMotoTaxi.numResgistro}"/>
+
+                    <h:outputText value="Ponto_Praça"/>
+                    <h:outputText value="#{ControladorMotoTaxi.selectedCadastroMotoTaxi.ponto_praca}"/>
+
+                    <h:outputText value="RG"/>
+                    <h:outputText value="#{ControladorMotoTaxi.selectedCadastroMotoTaxi.rg}"/>
+
                 </p:panelGrid>
                 <p:commandButton value="ok" oncomplete="PF('widDial').hide()"/>
             </p:dialog>
