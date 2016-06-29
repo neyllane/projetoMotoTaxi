@@ -6,15 +6,14 @@
 package br.edu.ifpe.controladores;
 
 import br.edu.ifpe.motoTaxi.negocio.model.MotoTaxi;
-import br.edu.ifpe.repositorio.implementacoes.RepositorioControladorCadastroMotoTaxiImplDB;
+import br.edu.ifpe.repositorio.implementacoes.RepositorioControladorMotoTaxiImplDB;
 import br.edu.ifpe.repositorio.interfaces.RepositorioGenerico;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
 /**
@@ -22,33 +21,33 @@ import javax.faces.context.FacesContext;
  * @author kelly silva
  */
 @ManagedBean(name = "ControladorMotoTaxi")
-@ViewScoped
+@RequestScoped
 public class ControladorMotoTaxi {
 
-    private RepositorioGenerico<MotoTaxi, Integer> repositorioCadastroMotoTaxi = null;
-    private MotoTaxi selectedCadastroMotoTaxi;
+    private RepositorioGenerico<MotoTaxi, Integer> repositorioMotoTaxi = null;
+    private MotoTaxi selectedMotoTaxi;
 
     public ControladorMotoTaxi() {
        
-        this.repositorioCadastroMotoTaxi = new RepositorioControladorCadastroMotoTaxiImplDB();
-        this.selectedCadastroMotoTaxi = new MotoTaxi();
+        this.repositorioMotoTaxi = new RepositorioControladorMotoTaxiImplDB();
+        this.selectedMotoTaxi = new MotoTaxi();
     }
 
-    public String inserir(MotoTaxi cadastroMotoTaxi) {
+    public String inserir(MotoTaxi motoTaxi) {
 
-        this.repositorioCadastroMotoTaxi.inserir(cadastroMotoTaxi);
+        this.repositorioMotoTaxi.inserir(motoTaxi);
 
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Parabéns,MotoTaxi foi Cadastrado com sucesso"));
 
         return "index.xhtml";
     }
 
-    public String alterar(MotoTaxi cadastroMotoTaxi) {
+    public String alterar(MotoTaxi motoTaxi) {
         try {
-            this.repositorioCadastroMotoTaxi.alterar(cadastroMotoTaxi);
+            this.repositorioMotoTaxi.alterar(motoTaxi);
 
             FacesContext.getCurrentInstance().addMessage(null,
-                    new FacesMessage("O Moto Taxi " + cadastroMotoTaxi.getNome()+ " foi "
+                    new FacesMessage("O Moto Taxi " + motoTaxi.getNome()+ " foi "
                             + "Alterado com sucesso!"));
 
             return "ApresentarMotoTaxi.xhtml";
@@ -59,28 +58,28 @@ public class ControladorMotoTaxi {
         return null;
     }
 
-    public MotoTaxi recuperarCadastroMotoTaxi(int cpf) {
-        return this.repositorioCadastroMotoTaxi.recuperar(cpf);
+    public MotoTaxi recuperarMotoTaxi(int cpf) {
+        return this.repositorioMotoTaxi.recuperar(cpf);
     }
 
-    public void deletar(MotoTaxi cadastroMotoTaxi) {
+    public void deletar(MotoTaxi motoTaxi) {
        
-        this.repositorioCadastroMotoTaxi.deletar(cadastroMotoTaxi);
+        this.repositorioMotoTaxi.deletar(motoTaxi);
 
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
-                "O Moto taxi " + cadastroMotoTaxi.getNome()+ " foi excluído com sucesso!!!"));
+                "O Moto taxi " + motoTaxi.getNome()+ " foi excluído com sucesso!!!"));
 
     }
 
     public List<MotoTaxi> recuperarTodosMotoTaxi() {
-        return this.repositorioCadastroMotoTaxi.recuperarTodos();
+        return this.repositorioMotoTaxi.recuperarTodos();
     }
 
-    public MotoTaxi getSelectedCadastroMotoTaxi() {
-        return selectedCadastroMotoTaxi;
+    public MotoTaxi getSelectedMotoTaxi() {
+        return selectedMotoTaxi;
     }
 
-    public void setSelectedCadastroMotoTaxi(MotoTaxi selectedcCadastroMotoTaxi) {
-        this.selectedCadastroMotoTaxi = selectedcCadastroMotoTaxi;
+    public void setSelectedMotoTaxi(MotoTaxi selectedMotoTaxi) {
+        this.selectedMotoTaxi = selectedMotoTaxi;
     }
 }

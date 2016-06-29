@@ -13,9 +13,11 @@ import java.util.List;
 
 /**
  *
- * @author 1860915
+ * @author kelly silva
  */
 public class RepositorioControladorUsuarioImplDB implements RepositorioGenerico<Usuario, Integer> {
+      public RepositorioControladorUsuarioImplDB() {
+        }
 
     @Override
     public void inserir(Usuario t) {
@@ -33,30 +35,28 @@ public class RepositorioControladorUsuarioImplDB implements RepositorioGenerico<
             return (Usuario) DaoManagerHiber.getInstance().recover("from Usuario where id = " + chave).get(0);
         } catch (IndexOutOfBoundsException ex) {
             return null;
+                     // chama a tabela usuario
         }
     }
 
     @Override
     public void deletar(Usuario t) {
-       // Session ss = HibernateUtil.getSessionFactory().getCurrentSession();
-        //ss.beginTransaction();
-        //ss.delete(t);
-        //ss.beginTransaction().commit();
+       
         DaoManagerHiber.getInstance().delete(t);
     }
 
     @Override
     public List<Usuario> recuperarTodos() {
-       // Session ss = HibernateUtil.getSessionFactory().getCurrentSession();
-       // ss.beginTransaction();
-        //List lista = ss.createQuery("From CadastroUsuario").list();
-        //ss.beginTransaction().commit();
+     
         return DaoManagerHiber.getInstance().recover("from Usuario");
+          //chama o dao e  recupera a tabela usuario
     }
 
-    @Override
+
     public void inserir(ControladorMotoTaxi controladorMotoTaxi) {
        
     }
+
+ 
 
 }

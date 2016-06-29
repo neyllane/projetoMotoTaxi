@@ -22,16 +22,16 @@ public class Teste {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction t = session.beginTransaction();
 
-        List<MotoTaxi> lista = (List<MotoTaxi>) session.createQuery("From CadastroMotoTaxi").list();
-        for (MotoTaxi cadastroMotoTaxi : lista) {
-            JOptionPane.showMessageDialog(null, cadastroMotoTaxi.getNome());
-            JOptionPane.showMessageDialog(null, cadastroMotoTaxi.getCpf());
-            JOptionPane.showMessageDialog(null, cadastroMotoTaxi.getEmail());
-            JOptionPane.showMessageDialog(null, cadastroMotoTaxi.getEndereco());
-            JOptionPane.showMessageDialog(null, cadastroMotoTaxi.getNumCelular());
-            JOptionPane.showMessageDialog(null, cadastroMotoTaxi.getNumResgistro());
-            JOptionPane.showMessageDialog(null, cadastroMotoTaxi.getRg());
-            JOptionPane.showMessageDialog(null, cadastroMotoTaxi.getPonto_praca());
+        List<MotoTaxi> lista = (List<MotoTaxi>) session.createQuery("From MotoTaxi").list();
+        for (MotoTaxi MotoTaxi : lista) {
+            JOptionPane.showMessageDialog(null, MotoTaxi.getNome());
+            JOptionPane.showMessageDialog(null, MotoTaxi.getCpf());
+            JOptionPane.showMessageDialog(null, MotoTaxi.getEmail());
+            JOptionPane.showMessageDialog(null, MotoTaxi.getEndereco());
+            JOptionPane.showMessageDialog(null, MotoTaxi.getNumCelular());
+            JOptionPane.showMessageDialog(null, MotoTaxi.getNumResgistro());
+            JOptionPane.showMessageDialog(null, MotoTaxi.getRg());
+            JOptionPane.showMessageDialog(null, MotoTaxi.getPonto_praca());
 
         }
         t.commit();

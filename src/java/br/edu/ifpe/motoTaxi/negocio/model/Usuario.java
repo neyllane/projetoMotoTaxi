@@ -23,21 +23,24 @@ public class Usuario {
     @Id
     @GeneratedValue
     private int codigo;
-    private long cpf;
+    private String cpf;
     @Column(length = 50)
     private String login;
     @Column(length = 50)
     private String senha;
     private String nome;
     private String email;
+  
 
-    public Usuario(String login, String senha, String nome, String email, int cpf, int codigo) {
-        this.login = login;
-        this.senha = senha;
+    public Usuario( String nome, String email, String cpf, int codigo, String login, String senha) {
+      
         this.email = email;
         this.nome = nome;
         this.cpf = cpf;
         this.codigo = codigo;
+        this.login = login;
+        this.senha = senha;
+        
 
     }
 
@@ -88,22 +91,17 @@ public class Usuario {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    public Integer getID() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     /**
      * @return the cpf
      */
-    public long getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
     /**
      * @param cpf the cpf to set
      */
-    public void setCpf(long cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 

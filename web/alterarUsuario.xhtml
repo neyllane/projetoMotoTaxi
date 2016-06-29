@@ -20,23 +20,21 @@
 
                     <p:panel><h:outputText value="CPF"/><h:outputText value="*" style="color:red"/></p:panel>
                     <p:inputText id="inCPF" value="#{ ControladorUsuario.selectedUsuario.cpf}"
-                                 required="true" requiredMessage="O CPF é obrigatorio!"/>
+                                 
                     <p:message for="inCPF" />
 
                     <h:outputText value="Nome*"/>
-                    <p:inputText id="inNome" value="#{ControladorUsuario.selectedUsuario.nome}" required="true"
-                                 requiredMessage="O Nome é Obrigatório"/>
+                    <p:inputText id="inNome" value="#{ControladorUsuario.selectedUsuario.nome}" required="true"></p:inputText>
                     <p:message for="inNome"/>
 
                     <h:outputText value="email*"/>
-                    <p:inputText id="inEmail" value="#{ControladorUsuario.selectedUsuario.email}" required="true"
-                                 requiredMessage=" O email é obrigatorio"/>
+                    <p:inputText id="inEmail" value="#{ControladorUsuario.selectedUsuario.email}" required="true"></p:inputText>
                     <p:message for="inEmail"/>
 
                 </p:panelGrid>
                 <p:commandButton value="alterar" 
                                  oncomplete="PF('widDial').show()"/>
-                <p:commandButton value="cancelar" action="apresentarUsuario.xhtml"/>
+                <p:commandButton value="cancelar" action="ApresentarUsuario.xhtml"/>
 
             </p:fieldset>
 

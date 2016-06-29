@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  *
- * @author 1860915
+ * @author kelly silva
  */
 public class RepositorioselectedUsuarioImplMemo implements RepositorioGenerico<Usuario, Integer> {
 
@@ -33,6 +33,7 @@ public class RepositorioselectedUsuarioImplMemo implements RepositorioGenerico<U
             if (u.getCpf() == t.getCpf()) {
                 u.setNome(t.getNome());
                 u.setEmail(t.getEmail());
+                u.setCodigo(t.getCodigo());
                 u.setLogin(t.getLogin());
                 u.setSenha(t.getSenha());
 
@@ -65,7 +66,7 @@ public class RepositorioselectedUsuarioImplMemo implements RepositorioGenerico<U
         return this.listaControladorUsuario;
     }
 
-    @Override
+    
     public void inserir(ControladorMotoTaxi controladorMotoTaxi) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

@@ -5,7 +5,6 @@
  */
 package br.edu.ifpe.repositorio.interfaces;
 
-import br.edu.ifpe.controladores.ControladorMotoTaxi;
 import java.util.List;
 
 /**
@@ -26,6 +25,6 @@ public interface RepositorioGenerico<T, G> {
 
     public List<T> recuperarTodos();
 
-    public void inserir(ControladorMotoTaxi controladorMotoTaxi);
+    //public void inserir(ControladorMotoTaxi controladorMotoTaxi);
 
 }

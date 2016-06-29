@@ -6,21 +6,17 @@
 package br.edu.ifpe.motoTaxi.negocio.model;
 
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
  *
  * @author kelly silva
  */
-@Table(name = "CadastroMotoTaxi")
+@Table(name = "MotoTaxi")
 @Entity
 public class MotoTaxi {
 
@@ -43,6 +39,7 @@ public class MotoTaxi {
     private String email;
     @Column(length = 50)
     private String ponto_praca;
+   
     //@ManyToOne
     //@JoinColumn(name="mototx-id", nullable=true)
     //private Moto MotoDoMotoTaxi;
@@ -60,6 +57,7 @@ public class MotoTaxi {
         this.numResgistro = numResgistro;
         this.cpf = cpf;
         this.codigo = codigo;
+        
     }
 
     @Deprecated

@@ -12,8 +12,9 @@
 
         <ui:include src="Menu2.xhtml"/>
         <p:growl id="gro" sticky="false" life="3000"/>
-
+        
         <h:form id="formulario">
+            
             <p:dataTable id="tabela" value="#{ControladorUsuario.recuperarTodosUsuarios()}" var="item"
                          paginator="true" rows="5" rowKey="#{item.codigo}" selectionMode="single"
                          selection="#{ControladorUsuario.selectedUsuario}">
@@ -32,33 +33,33 @@
                 <p:column headerText="email">
                     <h:outputText value="#{item.email}"/>
                 </p:column>
-
+                
             </p:dataTable>
             <p:commandButton value="Exibir dados" oncomplete="PF('widDial').show()"
                              update="dial"/>
             <p:commandButton value="Alterar" action="alterarUsuario.xhtml"/>
             <p:commandButton value="Excluir" oncomplete="PF('widDial2').show()"/>
-
+            
             <p:dialog id="dial" visible="false" resizable="false" modal="true"
                       widgetVar="widDial">
                 <p:panelGrid columns="2">
                     <h:outputText value="código"/>
-                    <h:outputText value="#{controladorUsuario.selectedUsuario.codigo}"/>
-
+                    <h:outputText value="#{ControladorUsuario.selectedUsuario.codigo}"/>
+                    
                     <h:outputText value="CPF"/>
                     <h:outputText value="#{ControladorUsuario.selectedUsuario.cpf}"/>
 
                     <h:outputText value="Nome"/>
-                    <h:outputText value="#{controladorUsuario.selectedUsuario.nome}"/>
-
+                    <h:outputText value="#{ControladorUsuario.selectedUsuario.nome}"/>
+                    
                     <h:outputText value="Email"/>
                     <h:outputText value="#{ControladorUsuario.selectedUsuario.email}"/>
                 </p:panelGrid>
                 <p:commandButton value="ok" oncomplete="PF('widDial').hide()"/>
             </p:dialog>
-
+            
             <p:confirmDialog id="dial2" visible="false" message="Deseja realmente Excluir o Usuario ? "
-                             widgetVar="widDial2">
+                widgetVar="widDial2">
                 <p:commandButton value="sim" action="#{ControladorUsuario.deletar(
                                                        ControladorUsuario.selectedUsuario)}"
                                  oncomplete="PF('widDial2').hide()" update="formulario"/>

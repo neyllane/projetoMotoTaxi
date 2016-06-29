@@ -14,15 +14,17 @@ import java.util.List;
 
 /**
  *
- * @author 1860915
+ * @author kelly silva
  */
-public  class RepositorioselectedCadastroMotoTaxirImplMemo implements RepositorioGenerico<MotoTaxi, Integer> {
+public  class RepositorioselectedMotoTaxirImplMemo implements RepositorioGenerico<MotoTaxi, Integer> {
 
     private List<MotoTaxi> listaControladorMotoTaxi = new ArrayList<>();
+  
 
     @Override
     public void inserir(MotoTaxi t) {
         this.listaControladorMotoTaxi.add(t);
+        //chama o controlador
     }
 
     @Override
@@ -32,14 +34,15 @@ public  class RepositorioselectedCadastroMotoTaxirImplMemo implements Repositori
             m = this.listaControladorMotoTaxi.get(i);
             if (m.getCpf().equals(t.getCpf())) {
                 m.setNome(t.getNome());
-                m.setEmail(t.getEmail());
+                m.setCodigo(t.getCodigo());
+                m.setNumResgistro(t.getNumResgistro());
+                m.setRg(t.getRg());
                 m.setEndereco(t.getEndereco());
                 m.setNumCelular(t.getNumCelular());
-                m.setNumResgistro(t.getNumResgistro());
+                m.setEmail(t.getEmail());
                 m.setPonto_praca(t.getPonto_praca());
-                m.setRg(t.getRg());
-             
-
+               
+//chama o controlador e obtem os dados do mototaxi 
                 return;
             }
         }
@@ -53,6 +56,9 @@ public  class RepositorioselectedCadastroMotoTaxirImplMemo implements Repositori
             if (m.getNumResgistro()== chave) {
                 return m;
             }
+            // chama o controlador
+            //size apenas retorna o tamanho controlador
+            //chave -> é nome onde está a tabela mototaxi
         }
         return null;
     }
@@ -60,6 +66,7 @@ public  class RepositorioselectedCadastroMotoTaxirImplMemo implements Repositori
     @Override
     public void deletar(MotoTaxi t) {
         this.listaControladorMotoTaxi.remove(t);
+        // chama o controlador
     }
 
     @Override
@@ -67,9 +74,10 @@ public  class RepositorioselectedCadastroMotoTaxirImplMemo implements Repositori
         return this.listaControladorMotoTaxi;
     }
 
-    @Override
     public void inserir(ControladorMotoTaxi controladorMotoTaxi) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+ 
 
 }

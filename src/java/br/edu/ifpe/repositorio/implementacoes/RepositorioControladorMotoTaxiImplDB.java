@@ -6,19 +6,17 @@
 package br.edu.ifpe.repositorio.implementacoes;
 
 import br.edu.ifpe.edu.cadastro.dao.DaoManagerHiber;
-import br.edu.ifpe.controladores.ControladorMotoTaxi;
 import br.edu.ifpe.motoTaxi.negocio.model.MotoTaxi;
 import br.edu.ifpe.repositorio.interfaces.RepositorioGenerico;
 import java.util.List;
-import org.hibernate.Session;
 
 /**
  *
  * @author kelly silva
  */
-public class RepositorioControladorCadastroMotoTaxiImplDB implements RepositorioGenerico<MotoTaxi, Integer>{
+public class RepositorioControladorMotoTaxiImplDB implements RepositorioGenerico<MotoTaxi, Integer>{
 
-    public RepositorioControladorCadastroMotoTaxiImplDB() {
+    public RepositorioControladorMotoTaxiImplDB() {
         }
     
       @Override
@@ -34,34 +32,31 @@ public class RepositorioControladorCadastroMotoTaxiImplDB implements Repositorio
     @Override
     public MotoTaxi recuperar(Integer chave) {
         try {
-            return (MotoTaxi) DaoManagerHiber.getInstance().recover("from CadastroMotoTaxi where id = " + chave).get(0);
+            return (MotoTaxi) DaoManagerHiber.getInstance().recover("from MotoTaxi where id = " + chave).get(0);
         } catch (IndexOutOfBoundsException ex) {
             return null;
+            
+            // chama a tabela mototaxi
         }
     }
 
     @Override
     public void deletar(MotoTaxi t) {
-        //Session ss = HibernateUtil.getSessionFactory().getCurrentSession();
-        //ss.beginTransaction();
-        //ss.delete(t);
-        //ss.beginTransaction().commit();
+      
         DaoManagerHiber.getInstance().delete(t);
     }
 
     @Override
     public List<MotoTaxi> recuperarTodos() {
-         //Session ss = HibernateUtil.getSessionFactory().getCurrentSession();
-        //ss.beginTransaction();
-        //List lista = ss.createQuery("From CadastroMotoTaxi").list();
-        //ss.beginTransaction().commit();
-        return DaoManagerHiber.getInstance().recover("from CadastroMotoTaxi");
+     
+        return DaoManagerHiber.getInstance().recover("from MotoTaxi");
+        
+      //chama o dao  recuperar a tabela mototaxi
     }
 
-    @Override
-    public void inserir(ControladorMotoTaxi controladorMotoTaxi) {
+    //public void inserir(ControladorMotoTaxi controladorMotoTaxi) {
         
-    }
+    //}
 }
 
 
