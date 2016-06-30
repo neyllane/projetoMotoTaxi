@@ -42,32 +42,35 @@
             </p:dialog>
             <p:dialog id="dialCadastro" resizable="false" visible="false" modal="true" widgetVar="widCadastro">
                 <f:facet name="header">
-                 
+
                     <a href="CadastroUsuario.xhtml"></a>
                     <p:fieldset legend="Cadastro do Usuário">
                         <p:panelGrid columns="3">
                             <p:panel><h:outputText value="Código"/><h:outputText value="*" style="color:red"/></p:panel>
 
                             <h:outputText value="CPF*"/>
-                            <p:inputText id="inCPF" value="#{ControladorUsuario.selectedUsuario.cpf}" required="true"></p:inputText>
+                            <p:inputText id="inCPF" value="#{ControladorUsuario.selectedUsuario.cpf}"
+
+                                         required="true" requiredMessage="O CPF é obrigatorio!"/>
                             <p:message for="inCPF"/>
 
 
                             <h:outputText value="Nome*"/>
-                            <p:inputText id="inNome" value="#{ControladorUsuario.selectedUsuario.nome}" required="true"></p:inputText>
-                            <p:message for="inNome"/>
+                            <p:inputText id="inNome" value="#{ControladorUsuario.selectedUsuario.nome}" 
+                                         required="true" requiredMessage="O Nome é obrigatorio!"/>                            <p:message for="inNome"/>
 
                             <h:outputText value="Email*"/>
-                            <p:inputText id="inEmail" value="#{ControladorUsuario.selectedUsuario.email}" required="true"></p:inputText>
-                            <p:message for="inEmail"/>
+                            <p:inputText id="inEmail" value="#{ControladorUsuario.selectedUsuario.email}" 
+                                         required="true" requiredMessage="O Email é obrigatorio!"/>                            <p:message for="inEmail"/>
 
                             <h:outputText value="Criar Login*"/>
-                            <p:inputText id="inLogin" value="#{ControladorUsuario.selectedUsuario.login}" required="true"></p:inputText>
+                            <p:inputText id="inLogin" value="#{ControladorUsuario.selectedUsuario.login}" 
+                                         required="true" requiredMessage="O Login é obrigatorio!"/>                           
                             <p:message for="inLogin"/>
 
                             <h:outputText value="Criar Senha*"/>
-                            <p:inputText id="inSenha" value="#{ControladorUsuario.selectedUsuario.senha}" required="true"></p:inputText>
-                            <p:message for="inSenha"/>
+                            <p:inputText id="inSenha" value="#{ControladorUsuario.selectedUsuario.senha}" 
+                                         required="true" requiredMessage="A Senha é obrigatorio!"/>                            <p:message for="inSenha"/>
 
                         </p:panelGrid>
                         <p:commandButton value="cadastrar" 
@@ -77,18 +80,18 @@
                 </f:facet>
             </p:dialog>
             <p:dialog resizable="false" id="idDial" widgetVar="widDial" modal="true" 
-                  visible="false">
-            <f:facet name="header">
-                Deseja realmente cadastrar  o usuario ?
-            </f:facet>
-            
-            <p:commandButton value="sim" action="#{ControladorUsuario.inserir(ControladorUsuario.selectedUsuario)}"
-                             oncomplete="PF('widDial').hide()" update="formulario"/>
-            <p:commandButton value="não" oncomplete="PF('widDial').hide()"/>
-            
-        </p:dialog>
+                      visible="false">
+                <f:facet name="header">
+                    Deseja realmente cadastrar  o usuario ?
+                </f:facet>
+
+                <p:commandButton value="sim" action="#{ControladorUsuario.inserir(ControladorUsuario.selectedUsuario)}"
+                                 oncomplete="PF('widDial').hide()" update="formulario"/>
+                <p:commandButton value="não" oncomplete="PF('widDial').hide()"/>
+
+            </p:dialog>
         </h:form>
-        
+
     </h:body>
 </html>
 

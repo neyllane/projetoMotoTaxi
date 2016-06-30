@@ -16,9 +16,9 @@ import javax.persistence.Table;
  *
  * @author kelly silva
  */
-@Table(name = "Projeto")
+@Table(name = "Corrida")
 @Entity
-public class Projeto implements Serializable {
+public class Corrida implements Serializable {
 
     @Id
     @GeneratedValue
@@ -27,7 +27,7 @@ public class Projeto implements Serializable {
     @Column(length = 50)
     private String Hora;
 
-    public Projeto() {
+    public Corrida() {
 
     }
 

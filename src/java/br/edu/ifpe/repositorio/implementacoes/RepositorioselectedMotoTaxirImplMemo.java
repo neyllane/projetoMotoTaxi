@@ -72,6 +72,7 @@ public  class RepositorioselectedMotoTaxirImplMemo implements RepositorioGeneric
     @Override
     public List<MotoTaxi> recuperarTodos() {
         return this.listaControladorMotoTaxi;
+        // retorna o controlador
     }
 
     public void inserir(ControladorMotoTaxi controladorMotoTaxi) {

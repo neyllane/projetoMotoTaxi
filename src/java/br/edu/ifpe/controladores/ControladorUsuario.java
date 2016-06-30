@@ -57,7 +57,7 @@ public class ControladorUsuario {
             return "ApresentarUsuario.xhtml";
             //no alterar ele utiliza uma execeção com o try e catch onde ele chama o repositorio do usuario
             // mostra a menssagem que usuario foi alterardo com sucesso
-            // returna para a tela de ApresentarUsuario.xhtl onde estão todos os dados do usuário
+            // returna para a tela de ApresentarUsuario.xhtml onde estão todos os dados do usuário
 
         } catch (Exception ex) {
             Logger.getLogger(ControladorUsuario.class.getName()).log(Level.SEVERE, null, ex);
@@ -68,7 +68,7 @@ public class ControladorUsuario {
 
     public Usuario recuperarCadastroUsuario(int codigo) {
         return this.repositorioUsuario.recuperar(codigo);
-        //chama o repositorio do usuario e recupera atrávez do codigo
+        //retornar o repositorio do usuario e recupera atrávez do codigo
     }
 
     public void deletar(Usuario usuario) {
@@ -82,7 +82,7 @@ public class ControladorUsuario {
 
     public List<Usuario> recuperarTodosUsuarios() {
         return this.repositorioUsuario.recuperarTodos();
-        //chama apenas o repositorio do usuario e recupera todos os usuarios
+        //retornar apenas o repositorio do usuario e recupera todos os usuarios
     }
 
     public Usuario getSelectedUsuario() {

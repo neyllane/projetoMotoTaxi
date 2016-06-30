@@ -8,10 +8,27 @@
         <title>Tela Principal</title>
     </h:head>
     <h:body>
-        <h1> Bem-Vindo ao Via Moto Taxi!!!</h1>
-        <p:growl id="gro" sticky="false" life="3000"/>
-        <ui:include src="Menu2.xhtml"/>
-      
+              <h1>Bem Vindo ao Via Moto Taxi!!!</h1>
+     
+        <p:menubar>
+            <p:submenu label="Moto-Taxi">
+                
+                <p:menuitem value="Cadastrar" outcome="CadastroMotoTaxi.xhtml" />
+                <p:menuitem value="Apresentar" outcome="ApresentarMotoTaxi.xhtml" />
+
+         </p:submenu>
+            <p:submenu label="Login">
+                <p:menuitem value="Login" outcome="Login.xhtml" />
+                <p:menuitem value="Usuario" outcome="ApresentarUsuario.xhtml" />
+                
+
+            </p:submenu>
+            
+       
+            
+        </p:menubar>
+        
+        
     </h:body>
 </html>
 
